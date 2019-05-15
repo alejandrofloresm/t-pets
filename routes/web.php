@@ -18,5 +18,9 @@ Route::get('/', function () {
 Route::get('registro', 'UsersController@register')->name('users.register');
 Route::post('registro', 'UsersController@store')->name('users.store');
 
-Route::get('perfil', 'UsersController@profile')->name('users.profile');
+Route::get('perfil', 'UsersController@profile')
+    ->middleware('auth')
+    ->name('users.profile');
+
 Route::get('cerrar-sesion', 'UsersController@logout')->name('users.logout');
+Route::get('iniciar-sesion', 'UsersController@login')->name('login');

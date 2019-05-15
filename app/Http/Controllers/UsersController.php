@@ -14,6 +14,10 @@ class UsersController extends Controller
         return view('users.register');
     }
 
+    public function login(Request $req) {
+        return view('users.login');
+    }
+
     public function store(Request $req) {
         $user = new User;
         $user->name = $req->input('name');

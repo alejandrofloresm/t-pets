@@ -34,4 +34,11 @@ class UsersController extends Controller
     public function logout(Request $req) {
         Auth::logout();
     }
+
+    public function authenticate(Request $req) {
+        $credentials = $req->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('users.profile');
+        }
+    }
 }

@@ -1,5 +1,5 @@
 <h1>Iniciar sesión</h1>
-<form action="" method="POST">
+<form action="{{ route('users.authenticate') }}" method="POST">
     @csrf
     <label>Correo</label>
     <input type="text" name="email">
